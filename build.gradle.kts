@@ -97,4 +97,11 @@ tasks {
     dockerBuildNative {
         images.set(listOf("${System.getenv("DOCKER_IMAGE") ?: project.name}:$project.version"))
     }
+
+    test {
+        filter {
+            // exclude integration tests, TODO do sth about this in the future
+            excludeTestsMatching("*IT")
+        }
+    }
 }
