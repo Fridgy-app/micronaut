@@ -1,2 +1,2 @@
 
-rootProject.name="fridgy"
+rootProject.name="product-catalog"

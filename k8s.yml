@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: "fridgy"
+  name: "product-catalog"
 spec:
   selector:
     matchLabels:
-      app: "fridgy"
+      app: "product-catalog"
   template:
     metadata:
       labels:
-        app: "fridgy"
+        app: "product-catalog"
     spec:
       containers:
-        - name: "fridgy"
-          image: "gcr.io/fridgy/jib-image"
+        - name: "product-catalog"
+          image: "fridgy/product-catalog"
           ports:
             - name: http
               containerPort: 8080
@@ -34,10 +34,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: "fridgy"
+  name: "product-catalog"
 spec:
   selector:
-    app: "fridgy"
+    app: "product-catalog"
   type: LoadBalancer
   ports:
     - protocol: "TCP"

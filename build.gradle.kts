@@ -10,7 +10,7 @@ plugins {
 }
 
 version = "0.0.1"
-group = "me.rasztabiga.fridgy"
+group = "me.rasztabiga.fridgy.productcatalog"
 
 val kotlinVersion = project.properties["kotlinVersion"]
 repositories {
@@ -22,11 +22,12 @@ micronaut {
     testRuntime("spock2")
     processing {
         incremental(true)
-        annotations("me.rasztabiga.fridgy.*")
+        annotations("me.rasztabiga.fridgy.productcatalog.*")
     }
 }
 
 dependencies {
+    annotationProcessor("io.micronaut.data:micronaut-data-processor")
     kapt("io.micronaut:micronaut-http-validation")
     kapt("io.micronaut.data:micronaut-data-processor")
     kapt("io.micronaut.openapi:micronaut-openapi")
@@ -48,6 +49,7 @@ dependencies {
     implementation("io.micronaut.security:micronaut-security")
     implementation("io.micronaut.security:micronaut-security-jwt")
     implementation("io.micronaut.sql:micronaut-hibernate-jpa")
+    implementation("io.micronaut.data:micronaut-data-jdbc")
     implementation("io.micronaut.sql:micronaut-jdbc-hikari")
     implementation("io.swagger.core.v3:swagger-annotations")
     implementation("javax.annotation:javax.annotation-api")
@@ -72,7 +74,7 @@ dependencies {
 
 
 application {
-    mainClass.set("me.rasztabiga.fridgy.ApplicationKt")
+    mainClass.set("me.rasztabiga.fridgy.productcatalog.ApplicationKt")
 }
 java {
     sourceCompatibility = JavaVersion.toVersion("11")

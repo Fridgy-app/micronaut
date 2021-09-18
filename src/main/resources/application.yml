@@ -14,7 +14,7 @@ jpa:
         hbm2ddl:
           auto: update
     packages-to-scan:
-      - 'me.rasztabiga.fridgy.*'
+      - 'me.rasztabiga.fridgy.productcatalog.domain.*'
 
 kafka:
   bootstrap:
@@ -22,7 +22,7 @@ kafka:
 
 micronaut:
   application:
-    name: products-catalog-service
+    name: product-catalog
   metrics:
     enabled: true
   caches:
@@ -50,3 +50,8 @@ consul:
     default-zone: "${CONSUL_HOST:localhost}:${CONSUL_PORT:8500}"
     registration:
       enabled: true
+
+flyway:
+  datasources:
+    default:
+      enable: true

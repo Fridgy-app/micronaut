@@ -1,4 +1,4 @@
-package me.rasztabiga.fridgy
+package me.rasztabiga.fridgy.productcatalog
 
 import jakarta.inject.Singleton
 
