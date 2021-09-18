@@ -1,0 +1,17 @@
+Thumbs.db
+.DS_Store
+.gradle
+build/
+target/
+out/
+*.ipr
+*.iws
+.project
+.settings
+.classpath
+.factorypath
+**/.idea/compiler.xml
+**/.idea/gradle.xml
+**/.idea/jarRepositories.xml
+**/.idea/misc.xml
+**/.idea/uiDesigner.xml
