@@ -1,0 +1,6 @@
+CREATE TABLE PRODUCT
+(
+    id       SERIAL PRIMARY KEY,
+    name     TEXT NOT NULL,
+    ean_code VARCHAR(13) UNIQUE
+);

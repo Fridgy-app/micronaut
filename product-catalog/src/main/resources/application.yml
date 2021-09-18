@@ -13,8 +13,9 @@ jpa:
       hibernate:
         hbm2ddl:
           auto: update
-    packages-to-scan:
-      - 'me.rasztabiga.fridgy.productcatalog.domain.*'
+#    packages-to-scan:
+#      - 'me.rasztabiga.fridgy.productcatalog.domain.Product'
+# TODO remove?
 
 kafka:
   bootstrap:

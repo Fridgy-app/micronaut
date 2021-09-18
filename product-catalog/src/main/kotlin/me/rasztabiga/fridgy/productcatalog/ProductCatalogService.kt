@@ -15,7 +15,7 @@ object Api {
 fun main(args: Array<String>) {
 	build()
 	    .args(*args)
-		.packages("me.rasztabiga.fridgy.productcatalog")
+		.packages("me.rasztabiga.fridgy.productcatalog.*")
 		.start()
 }
 
