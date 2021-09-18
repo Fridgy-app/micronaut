@@ -1,0 +1,52 @@
+datasources:
+  default:
+    url: jdbc:postgresql://localhost:5432/postgres
+    driverClassName: org.postgresql.Driver
+    username: postgres
+    password: 'postgres'
+    schema-generate: CREATE_DROP
+    dialect: POSTGRES
+
+jpa:
+  default:
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
+    packages-to-scan:
+      - 'me.rasztabiga.fridgy.*'
+
+kafka:
+  bootstrap:
+    servers: "${KAFKA_HOST:localhost}:${KAFKA_PORT:9092}"
+
+micronaut:
+  application:
+    name: products-catalog-service
+  metrics:
+    enabled: true
+  caches:
+    my-cache:
+      maximumSize: 20
+  security:
+    authentication: bearer
+    token:
+      jwt:
+        enabled: true
+        signatures:
+          generator:
+            secret: '"${JWT_GENERATOR_SIGNATURE_SECRET:pleaseChangeThisSecretForANewOne}"'
+
+endpoints:
+  health:
+    enabled: true
+    sensitive: false
+  metrics:
+    enabled: true
+    sensitive: false
+
+consul:
+  client:
+    default-zone: "${CONSUL_HOST:localhost}:${CONSUL_PORT:8500}"
+    registration:
+      enabled: true

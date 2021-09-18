@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres
+    container_name: postgres
+    hostname: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
+  consul:
+    image: consul
+    container_name: consul
+    hostname: consul
+    ports:
+      - "8500:8500"
+  kafkaserver:
+    image: "spotify/kafka:latest" # TODO: spotify?
+    container_name: kafka
+    hostname: kafkaserver
+    ports:
+      - "2181:2181"
+      - "9092:9092"
+    environment:
+      ADVERTISED_HOST: kafkaserver
+      ADVERTISED_PORT: 9092
