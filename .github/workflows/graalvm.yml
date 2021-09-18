@@ -27,6 +27,7 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
       # TODO Can we split this per each service?
+      # JOB FAILS (even locally) with java.lang.RuntimeException: java.io.IOException: native write() failed : Connection reset by peer
       - name: Build And Push Docker Image (Product Catalog)
         working-directory: product-catalog
         env:
