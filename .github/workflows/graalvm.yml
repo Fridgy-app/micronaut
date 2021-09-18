@@ -14,9 +14,11 @@ jobs:
           key: ${{ runner.os }}-gradle-test-${{ hashFiles('**/*.gradle') }}
           restore-keys: ${{ runner.os }}-gradle-test-
       - name: Setup GraalVM CE
-        uses: DeLaGuardo/setup-graalvm@3.1
+        uses: DeLaGuardo/setup-graalvm@4.0
         with:
-          graalvm-version: 21.2.0.java11
+          graalvm: 21.2.0
+          java: java11
+          arch: amd64
       - name: Install Native Image
         run: gu install native-image
       - name: DockerHub login
