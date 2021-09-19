@@ -1,4 +1,5 @@
 // TODO can we use version as a variable?
+// TODO move plugins to the root?
 plugins {
     id("groovy")
     id("org.jetbrains.kotlin.jvm") version "1.5.30"
@@ -72,7 +73,7 @@ dependencies {
     testImplementation("org.hamcrest:hamcrest:2.2")
     testImplementation("org.mockito:mockito-core:3.12.4")
 
-//    implementation(project(":common"))
+    compileOnly(project(":common"))
 }
 
 application {
