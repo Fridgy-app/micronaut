@@ -1,5 +1,5 @@
 applicationType: default
-defaultPackage: me.rasztabiga.fridgy
+defaultPackage: me.rasztabiga.fridgy.productcatalog
 testFramework: junit
 sourceLanguage: kotlin
 buildTool: gradle_kotlin
