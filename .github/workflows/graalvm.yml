@@ -31,8 +31,7 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
       - name: Build And Push Docker Images
-        working-directory: ${{matrix.module}}
         env:
           TESTCONTAINERS_RYUK_DISABLED: true
         run: |
-          ./gradlew build dockerPushNative --no-daemon
+          ./gradlew ${{matrix.module}}dockerPushNative --no-daemon
