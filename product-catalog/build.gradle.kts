@@ -12,8 +12,8 @@ plugins {
 version = "0.0.1"
 group = "me.rasztabiga.fridgy.productcatalog"
 
-val kotlinVersion = project.properties["kotlinVersion"]
-val micronautVersion = project.properties["micronautVersion"]
+val kotlinVersion = "1.5.21"
+val micronautVersion = "3.0.1"
 
 repositories {
     mavenCentral()
