@@ -72,7 +72,7 @@ dependencies {
 }
 
 application {
-    mainClass.set("me.rasztabiga.fridgy.productcatalog.ProductCatalogServiceKt")
+    mainClass.set("me.rasztabiga.fridgy.productcatalog.ProductCatalogService")
 }
 
 java {
