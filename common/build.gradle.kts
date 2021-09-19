@@ -4,14 +4,13 @@ plugins {
     id("org.jetbrains.kotlin.jvm") version "1.5.30"
     id("org.jetbrains.kotlin.kapt") version "1.5.30"
     id("com.github.johnrengelman.shadow") version "7.0.0"
-    id("io.micronaut.application") version "2.0.4"
     id("org.jetbrains.kotlin.plugin.allopen") version "1.5.30"
     id("org.jetbrains.kotlin.plugin.jpa") version "1.5.30"
     id("com.google.cloud.tools.jib") version "2.8.0"
 }
 
 version = "0.0.1"
-group = "me.rasztabiga.fridgy.productcatalog"
+group = "me.rasztabiga.fridgy.common"
 
 // TODO can I use gradle.properties?
 //val kotlinVersion = "1.5.30"
@@ -22,15 +21,6 @@ val micronautVersion = project.properties["micronautVersion"]
 
 repositories {
     mavenCentral()
-}
-
-micronaut {
-    runtime("netty")
-    testRuntime("spock2")
-    processing {
-        incremental(true)
-        annotations("me.rasztabiga.fridgy.productcatalog.*")
-    }
 }
 
 dependencies {
@@ -71,12 +61,6 @@ dependencies {
     runtimeOnly("com.fasterxml.jackson.module:jackson-module-kotlin:2.12.5")
     testImplementation("org.hamcrest:hamcrest:2.2")
     testImplementation("org.mockito:mockito-core:3.12.4")
-
-//    implementation(project(":common"))
-}
-
-application {
-    mainClass.set("me.rasztabiga.fridgy.productcatalog.ProductCatalogService")
 }
 
 java {
@@ -92,21 +76,6 @@ tasks {
     compileTestKotlin {
         kotlinOptions {
             jvmTarget = "11"
-        }
-    }
-
-    dockerBuild {
-        images.set(listOf("${rootProject.name}/${project.name}:${project.version}", "${rootProject.name}/${project.name}:latest"))
-    }
-
-    dockerBuildNative {
-        images.set(listOf("${rootProject.name}/${project.name}:${project.version}", "${rootProject.name}/${project.name}:latest"))
-    }
-
-    test {
-        filter {
-            // exclude integration tests, TODO add another task for running only integration tests
-            excludeTestsMatching("*IT")
         }
     }
 }
