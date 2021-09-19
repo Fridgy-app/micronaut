@@ -53,7 +53,6 @@ dependencies {
     implementation("io.micronaut.kotlin:micronaut-kotlin-extension-functions:3.0.0")
     implementation("io.micronaut.kotlin:micronaut-kotlin-runtime:3.0.0")
     implementation("io.micronaut.kubernetes:micronaut-kubernetes-discovery-client:3.0.0")
-    implementation("io.micronaut.security:micronaut-security:${micronautVersion}")
     implementation("io.micronaut.security:micronaut-security-jwt:${micronautVersion}")
     implementation("io.micronaut.sql:micronaut-hibernate-jpa:4.0.0")
     implementation("io.micronaut.data:micronaut-data-jdbc:${micronautVersion}")
