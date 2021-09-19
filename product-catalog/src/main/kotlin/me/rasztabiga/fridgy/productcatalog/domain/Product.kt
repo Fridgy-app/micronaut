@@ -4,7 +4,7 @@ import com.sun.istack.NotNull
 import javax.persistence.*
 
 @Entity
-@Table(name = "product") // TODO https://guides.micronaut.io/latest/micronaut-jpa-hibernate-gradle-java.html
+@Table(name = "product") // https://guides.micronaut.io/latest/micronaut-jpa-hibernate-gradle-java.html
 data class Product(
     @Id
     @GeneratedValue

@@ -18,7 +18,7 @@ services:
     ports:
       - "8500:8500"
   kafkaserver:
-    image: "wurstmeister/kafka:latest" # TODO: https://hub.docker.com/r/wurstmeister/kafka/
+    image: "wurstmeister/kafka:latest" # https://hub.docker.com/r/wurstmeister/kafka/
     container_name: kafka
     hostname: kafkaserver
     ports:
