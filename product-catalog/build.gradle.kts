@@ -32,7 +32,7 @@ dependencies {
     annotationProcessor("io.micronaut.data:micronaut-data-processor:${micronautVersion}")
     kapt("io.micronaut:micronaut-http-validation:${micronautVersion}")
     kapt("io.micronaut.data:micronaut-data-processor:${micronautVersion}")
-    kapt("io.micronaut.openapi:micronaut-openapi:3.0.2")
+    kapt("io.micronaut.openapi:micronaut-openapi:3.0.3")
     kapt("io.micronaut.security:micronaut-security-annotations:${micronautVersion}")
     implementation("io.micronaut:micronaut-http-client:${micronautVersion}")
     implementation("io.micronaut:micronaut-management:${micronautVersion}")
@@ -92,11 +92,11 @@ tasks {
     }
 
     dockerBuild {
-        images.set(listOf(System.getenv("DOCKER_IMAGE") ?: "${project.name}:${project.version}"))
+        images.set(listOf("${rootProject.name}/${project.name}:${project.version}", "${rootProject.name}/${project.name}:latest"))
     }
 
     dockerBuildNative {
-        images.set(listOf(System.getenv("DOCKER_IMAGE") ?: "${project.name}:${project.version}"))
+        images.set(listOf("${rootProject.name}/${project.name}:${project.version}", "${rootProject.name}/${project.name}:latest"))
     }
 
     test {

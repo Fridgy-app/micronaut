@@ -6,7 +6,7 @@ import io.swagger.v3.oas.annotations.info.*
 
 @OpenAPIDefinition(
     info = Info(
-            title = "product-catalog",
+            title = "Product Catalog Service",
             version = "0.0.1"
     )
 )
