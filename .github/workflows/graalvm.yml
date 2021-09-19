@@ -29,8 +29,6 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
       - name: Build And Push Docker Images
         env:
-          DOCKER_REPOSITORY_PATH: ${{ secrets.DOCKER_REPOSITORY_PATH }}
-          DOCKER_REGISTRY_URL: ${{ secrets.DOCKER_REGISTRY_URL }}
           TESTCONTAINERS_RYUK_DISABLED: true
         run: |
           ./gradlew build dockerPushNative --no-daemon

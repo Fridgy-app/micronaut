@@ -4,17 +4,14 @@ import com.sun.istack.NotNull
 import javax.persistence.*
 
 @Entity
-@Table(name = "product")
+@Table(name = "product_category")
 // https://guides.micronaut.io/latest/micronaut-jpa-hibernate-gradle-java.html
-data class Product(
+data class ProductCategory(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long, // TODO move to BaseEntity or something like that - copy strapp
 
     @NotNull
     @Column(name = "name", nullable = false)
-    val name: String,
-
-    @Column(name = "ean_code", nullable = true)
-    val eanCode: String?
+    val name: String
 )
