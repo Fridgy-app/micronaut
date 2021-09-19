@@ -39,8 +39,6 @@ dependencies {
     implementation("io.micronaut.micrometer:micronaut-micrometer-core:4.0.0")
     implementation("io.micronaut.micrometer:micronaut-micrometer-registry-prometheus:4.0.0")
     implementation("io.micronaut:micronaut-runtime:${micronautVersion}")
-    implementation("io.micronaut.cache:micronaut-cache-core:3.0.0")
-    implementation("io.micronaut.cache:micronaut-cache-caffeine:3.0.0")
     implementation("io.micronaut.data:micronaut-data-hibernate-jpa:${micronautVersion}")
     implementation("io.micronaut.discovery:micronaut-discovery-client:3.0.0")
     implementation("io.micronaut.flyway:micronaut-flyway:4.1.0")

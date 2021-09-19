@@ -23,11 +23,6 @@ micronaut:
     name: product-catalog
   metrics:
     enabled: true
-  caches:
-    my-cache:
-      maximumSize: 20
-    discovery-client:
-      enabled: false
   security:
     authentication: bearer
     token:
