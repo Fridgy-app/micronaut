@@ -72,10 +72,10 @@ dependencies {
 
 }
 
-
 application {
-    mainClass.set("me.rasztabiga.fridgy.productcatalog.ApplicationKt")
+    mainClass.set("me.rasztabiga.fridgy.productcatalog.ProductCatalogServiceKt")
 }
+
 java {
     sourceCompatibility = JavaVersion.toVersion("11")
 }
@@ -93,16 +93,16 @@ tasks {
     }
 
     dockerBuild {
-        images.set(listOf("${System.getenv("DOCKER_IMAGE") ?: project.name}:$project.version"))
+        images.set(listOf(System.getenv("DOCKER_IMAGE") ?: "${project.name}:${project.version}"))
     }
 
     dockerBuildNative {
-        images.set(listOf("${System.getenv("DOCKER_IMAGE") ?: project.name}:$project.version"))
+        images.set(listOf(System.getenv("DOCKER_IMAGE") ?: "${project.name}:${project.version}"))
     }
 
     test {
         filter {
-            // exclude integration tests, TODO do sth about this in the future
+            // exclude integration tests, TODO add another task for running only integration tests
             excludeTestsMatching("*IT")
         }
     }
