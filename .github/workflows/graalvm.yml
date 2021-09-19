@@ -24,6 +24,7 @@ jobs:
       - name: DockerHub login # TODO: support other registries?
         uses: docker/login-action@v1
         with:
+          registry: ${{ secrets.DOCKER_REGISTRY_URL }}
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
       # TODO Can we split this per each service?
@@ -32,7 +33,8 @@ jobs:
         working-directory: product-catalog
         env:
           DOCKER_REPOSITORY_PATH: ${{ secrets.DOCKER_REPOSITORY_PATH }}
+          DOCKER_REGISTRY_URL: ${{ secrets.DOCKER_REGISTRY_URL }}
           TESTCONTAINERS_RYUK_DISABLED: true
         run: |
-          export DOCKER_IMAGE=`echo "${DOCKER_REPOSITORY_PATH}/product-catalog" | sed -e 's#//#/#' -e 's#^/##'`
+          export DOCKER_IMAGE=`echo "${DOCKER_REGISTRY_URL}/${DOCKER_REPOSITORY_PATH}/product-catalog" | sed -e 's#//#/#' -e 's#^/##'`
           ./gradlew build dockerPushNative --no-daemon
