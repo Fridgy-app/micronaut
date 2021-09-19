@@ -1,5 +1,9 @@
-name: GraalVM CE CI
-on: [ push, pull_request ]
+name: Build GraalVM Docker image
+on:
+  push:
+    branches:
+      - main
+      - master
 jobs:
   build:
     runs-on: ubuntu-latest
