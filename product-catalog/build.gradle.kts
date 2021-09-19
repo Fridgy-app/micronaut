@@ -13,6 +13,8 @@ version = "0.0.1"
 group = "me.rasztabiga.fridgy.productcatalog"
 
 val kotlinVersion = project.properties["kotlinVersion"]
+val micronautVersion = project.properties["micronautVersion"]
+
 repositories {
     mavenCentral()
 }
@@ -27,49 +29,45 @@ micronaut {
 }
 
 dependencies {
-    annotationProcessor("io.micronaut.data:micronaut-data-processor")
-    kapt("io.micronaut:micronaut-http-validation")
-    kapt("io.micronaut.data:micronaut-data-processor")
-    kapt("io.micronaut.openapi:micronaut-openapi")
-    kapt("io.micronaut.security:micronaut-security-annotations")
-    implementation("io.micronaut:micronaut-http-client")
-    implementation("io.micronaut:micronaut-management")
-    implementation("io.micronaut.micrometer:micronaut-micrometer-core")
-    implementation("io.micronaut.micrometer:micronaut-micrometer-registry-prometheus")
-    implementation("io.micronaut:micronaut-runtime")
-    implementation("io.micronaut.cache:micronaut-cache-core")
-    implementation("io.micronaut.cache:micronaut-cache-caffeine")
-    implementation("io.micronaut.data:micronaut-data-hibernate-jpa")
-    implementation("io.micronaut.discovery:micronaut-discovery-client")
-    implementation("io.micronaut.flyway:micronaut-flyway")
-    implementation("io.micronaut.graphql:micronaut-graphql")
-    implementation("io.micronaut.kafka:micronaut-kafka")
-    implementation("io.micronaut.kotlin:micronaut-kotlin-extension-functions")
-    implementation("io.micronaut.kotlin:micronaut-kotlin-runtime")
-    implementation("io.micronaut.kubernetes:micronaut-kubernetes-discovery-client")
-    implementation("io.micronaut.security:micronaut-security")
-    implementation("io.micronaut.security:micronaut-security-jwt")
-    implementation("io.micronaut.sql:micronaut-hibernate-jpa")
-    implementation("io.micronaut.data:micronaut-data-jdbc")
-    implementation("io.micronaut.sql:micronaut-jdbc-hikari")
-    implementation("io.swagger.core.v3:swagger-annotations")
-    implementation("javax.annotation:javax.annotation-api")
+    annotationProcessor("io.micronaut.data:micronaut-data-processor:${micronautVersion}")
+    kapt("io.micronaut:micronaut-http-validation:${micronautVersion}")
+    kapt("io.micronaut.data:micronaut-data-processor:${micronautVersion}")
+    kapt("io.micronaut.openapi:micronaut-openapi:3.0.2")
+    kapt("io.micronaut.security:micronaut-security-annotations:${micronautVersion}")
+    implementation("io.micronaut:micronaut-http-client:${micronautVersion}")
+    implementation("io.micronaut:micronaut-management:${micronautVersion}")
+    implementation("io.micronaut.micrometer:micronaut-micrometer-core:4.0.0")
+    implementation("io.micronaut.micrometer:micronaut-micrometer-registry-prometheus:4.0.0")
+    implementation("io.micronaut:micronaut-runtime:${micronautVersion}")
+    implementation("io.micronaut.cache:micronaut-cache-core:3.0.0")
+    implementation("io.micronaut.cache:micronaut-cache-caffeine:3.0.0")
+    implementation("io.micronaut.data:micronaut-data-hibernate-jpa:${micronautVersion}")
+    implementation("io.micronaut.discovery:micronaut-discovery-client:3.0.0")
+    implementation("io.micronaut.flyway:micronaut-flyway:4.1.0")
+    implementation("io.micronaut.graphql:micronaut-graphql:3.0.0")
+    implementation("io.micronaut.kafka:micronaut-kafka:4.0.0")
+    implementation("io.micronaut.kotlin:micronaut-kotlin-extension-functions:3.0.0")
+    implementation("io.micronaut.kotlin:micronaut-kotlin-runtime:3.0.0")
+    implementation("io.micronaut.kubernetes:micronaut-kubernetes-discovery-client:3.0.0")
+    implementation("io.micronaut.security:micronaut-security:${micronautVersion}")
+    implementation("io.micronaut.security:micronaut-security-jwt:${micronautVersion}")
+    implementation("io.micronaut.sql:micronaut-hibernate-jpa:4.0.0")
+    implementation("io.micronaut.data:micronaut-data-jdbc:${micronautVersion}")
+    implementation("io.micronaut.sql:micronaut-jdbc-hikari:4.0.0")
+    implementation("io.swagger.core.v3:swagger-annotations:2.1.10")
+    implementation("javax.annotation:javax.annotation-api:1.3.2")
     implementation("org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}")
-    runtimeOnly("ch.qos.logback:logback-classic")
-    runtimeOnly("org.postgresql:postgresql")
-    testImplementation("org.testcontainers:spock")
-    testImplementation("org.testcontainers:postgresql")
-    testImplementation("org.testcontainers:testcontainers")
-    compileOnly("org.graalvm.nativeimage:svm")
-
-    implementation("io.micronaut:micronaut-validation")
-
-    runtimeOnly("com.fasterxml.jackson.module:jackson-module-kotlin")
-
-    testImplementation("org.hamcrest:hamcrest")
-
-    testImplementation("org.mockito:mockito-core")
+    runtimeOnly("ch.qos.logback:logback-classic:1.2.6")
+    runtimeOnly("org.postgresql:postgresql:42.2.23.jre7")
+    testImplementation("org.testcontainers:spock:1.16.0")
+    testImplementation("org.testcontainers:postgresql:1.16.0")
+    testImplementation("org.testcontainers:testcontainers:1.16.0")
+    compileOnly("org.graalvm.nativeimage:svm:21.2.0")
+    implementation("io.micronaut:micronaut-validation:${micronautVersion}")
+    runtimeOnly("com.fasterxml.jackson.module:jackson-module-kotlin:2.12.5")
+    testImplementation("org.hamcrest:hamcrest:2.2")
+    testImplementation("org.mockito:mockito-core:3.12.4")
 
 }
 
