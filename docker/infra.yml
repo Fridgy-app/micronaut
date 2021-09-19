@@ -11,12 +11,16 @@ services:
       POSTGRES_DB: postgres
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
   consul:
     image: "consul:latest"
     container_name: consul
     hostname: consul
     ports:
       - "8500:8500"
+
   kafkaserver:
     image: "wurstmeister/kafka:latest" # https://hub.docker.com/r/wurstmeister/kafka/
     container_name: kafka
@@ -26,9 +30,56 @@ services:
     environment:
       KAFKA_ADVERTISED_HOST_NAME: localhost
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+
   zookeeper:
     image: "wurstmeister/zookeeper:latest"
     container_name: zookeeper
     hostname: zookeeper
     ports:
       - "2181:2181"
+
+  keycloak:
+    image: "quay.io/keycloak/keycloak:latest"
+    container_name: keycloak
+    hostname: keycloak
+    command:
+      - "-b"
+      - "0.0.0.0"
+      - "-Dkeycloak.migration.action=import"
+      - "-Dkeycloak.migration.provider=singleFile"
+      - "-Dkeycloak.migration.file=/keycloak/import.json"
+      - "-Dkeycloak.migration.strategy=IGNORE_EXISTING"
+      - "-Dkeycloak.migration.usersExportStrategy=SAME_FILE"
+    volumes:
+      - ./keycloak:/keycloak/
+    environment:
+      - KEYCLOAK_USER=admin
+      - KEYCLOAK_PASSWORD=password
+      - KEYCLOAK_FRONTEND_URL=http://localhost:8081/auth/
+      - DB_VENDOR=postgres
+      - DB_USER=admin
+      - DB_PASSWORD=password
+      - DB_ADDR=keycloak-db
+      - DB_PORT=5432
+      - DB_DATABASE=keycloakdb
+    ports:
+      - "8081:8080"
+    depends_on:
+      - keycloak-db
+
+  keycloak-db:
+    image: "postgres:latest"
+    container_name: keycloak-db
+    hostname: keycloak-db
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: keycloakdb
+    volumes:
+      - keycloak-pgdata:/var/lib/postgresql/data
+
+volumes:
+  postgres-data:
+    driver: local
+  keycloak-pgdata:
+    driver: local
