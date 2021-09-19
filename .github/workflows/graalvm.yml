@@ -3,6 +3,9 @@ on: [ push, pull_request ]
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        module: [ product-catalog, recipes ]
     steps:
       - uses: actions/checkout@v2
       - uses: actions/cache@v2
@@ -28,6 +31,7 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
       - name: Build And Push Docker Images
+        working-directory: ${{matrix.module}}
         env:
           TESTCONTAINERS_RYUK_DISABLED: true
         run: |

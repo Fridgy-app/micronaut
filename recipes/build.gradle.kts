@@ -12,7 +12,7 @@ plugins {
 }
 
 version = "0.0.1"
-group = "me.rasztabiga.fridgy.productcatalog"
+group = "me.rasztabiga.fridgy.recipes"
 
 // TODO can I use gradle.properties?
 //val kotlinVersion = "1.5.30"
@@ -30,7 +30,7 @@ micronaut {
     testRuntime("spock2")
     processing {
         incremental(true)
-        annotations("me.rasztabiga.fridgy.productcatalog.*")
+        annotations("me.rasztabiga.fridgy.recipes.*")
     }
 }
 
@@ -77,7 +77,7 @@ dependencies {
 }
 
 application {
-    mainClass.set("me.rasztabiga.fridgy.productcatalog.ProductCatalogService")
+    mainClass.set("me.rasztabiga.fridgy.recipes.RecipesService")
 }
 
 java {

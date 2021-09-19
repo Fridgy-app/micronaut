@@ -1,32 +1,32 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: "product-catalog"
+  name: "recipes"
 spec:
   selector:
     matchLabels:
-      app: "product-catalog"
+      app: "recipes"
   template:
     metadata:
       labels:
-        app: "product-catalog"
+        app: "recipes"
     spec:
       containers:
-        - name: "product-catalog"
-          image: "fridgy/product-catalog"
+        - name: "recipes"
+          image: "fridgy/recipes"
           ports:
             - name: http
-              containerPort: 8101
+              containerPort: 8102
           readinessProbe:
             httpGet:
               path: /health/readiness
-              port: 8101
+              port: 8102
             initialDelaySeconds: 5
             timeoutSeconds: 3
           livenessProbe:
             httpGet:
               path: /health/liveness
-              port: 8101
+              port: 8102
             initialDelaySeconds: 5
             timeoutSeconds: 3
             failureThreshold: 10
@@ -34,11 +34,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: "product-catalog"
+  name: "recipes"
 spec:
   selector:
-    app: "product-catalog"
+    app: "recipes"
   type: LoadBalancer
   ports:
     - protocol: "TCP"
-      port: 8101
+      port: 8102

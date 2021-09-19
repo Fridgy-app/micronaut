@@ -1,3 +1,3 @@
 rootProject.name = "fridgy"
 
-include("product-catalog", "common")
+include("product-catalog", "recipes", "common")
