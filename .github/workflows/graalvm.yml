@@ -39,4 +39,4 @@ jobs:
         env:
           TESTCONTAINERS_RYUK_DISABLED: true
         run: |
-          ./gradlew ${{matrix.module}}dockerPushNative --no-daemon
+          ./gradlew ${{matrix.module}}:dockerPushNative --no-daemon
