@@ -3,4 +3,7 @@ micronaut:
     name: product-catalog
   config-client:
     enabled: true
-consul.client.defaultZone: ${CONSUL_HOST:localhost}:${CONSUL_PORT:8500}
+
+consul:
+  client:
+    defaultZone: "${CONSUL_HOST:localhost}:${CONSUL_PORT:8500}"

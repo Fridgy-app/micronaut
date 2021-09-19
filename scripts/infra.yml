@@ -18,12 +18,17 @@ services:
     ports:
       - "8500:8500"
   kafkaserver:
-    image: "spotify/kafka:latest"
+    image: "wurstmeister/kafka:latest" # TODO: https://hub.docker.com/r/wurstmeister/kafka/
     container_name: kafka
     hostname: kafkaserver
     ports:
-      - "2181:2181"
       - "9092:9092"
-#    environment:
-#      ADVERTISED_HOST: kafkaserver
-#      ADVERTISED_PORT: 9092
+    environment:
+      KAFKA_ADVERTISED_HOST_NAME: localhost
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+  zookeeper:
+    image: "wurstmeister/zookeeper:latest"
+    container_name: zookeeper
+    hostname: zookeeper
+    ports:
+      - "2181:2181"

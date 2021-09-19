@@ -26,6 +26,8 @@ micronaut:
   caches:
     my-cache:
       maximumSize: 20
+    discovery-client:
+      enabled: false
   security:
     authentication: bearer
     token:
