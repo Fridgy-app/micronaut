@@ -9,9 +9,6 @@ import javax.persistence.*
 abstract class BaseEntity {
 
     // TODO can we move id here?
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long = 0
 
     @Version
     @JsonIgnore

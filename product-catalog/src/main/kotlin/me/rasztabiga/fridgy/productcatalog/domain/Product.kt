@@ -2,13 +2,15 @@ package me.rasztabiga.fridgy.productcatalog.domain
 
 import me.rasztabiga.fridgy.common.entity.BaseAggregateRoot
 import org.hibernate.Hibernate
-import javax.persistence.Column
-import javax.persistence.Entity
-import javax.persistence.Table
+import javax.persistence.*
 
 @Entity
 @Table(name = "PRODUCT")
 data class Product(
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    val id: Long = 0,
 
     @Column(name = "NAME", nullable = false, unique = true)
     val name: String,
