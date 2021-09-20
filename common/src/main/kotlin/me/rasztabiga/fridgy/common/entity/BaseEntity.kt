@@ -1,31 +1,32 @@
 package me.rasztabiga.fridgy.common.entity
 
-import javax.persistence.GeneratedValue
-import javax.persistence.GenerationType
-import javax.persistence.Id
-import javax.persistence.MappedSuperclass
+import com.fasterxml.jackson.annotation.JsonIgnore
+import io.micronaut.core.annotation.Introspected
+import javax.persistence.*
 
 @MappedSuperclass
-abstract class BaseEntity : VersionedIdentifiable<Long>() {
+@Introspected
+abstract class BaseEntity {
 
+    // TODO can we move id here?
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    protected val id: Long = 0
+    val id: Long = 0
 
-    override fun getId(): Long {
-        return id
-    }
+    @Version
+    @JsonIgnore
+    val version: Long = 0
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is BaseEntity) return false
 
-        if (id != other.id) return false
+        if (version != other.version) return false
 
         return true
     }
 
     override fun hashCode(): Int {
-        return id.hashCode()
+        return version.hashCode()
     }
 }

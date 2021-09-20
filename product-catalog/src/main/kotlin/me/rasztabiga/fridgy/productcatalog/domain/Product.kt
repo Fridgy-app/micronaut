@@ -9,6 +9,7 @@ import javax.persistence.Table
 @Entity
 @Table(name = "PRODUCT")
 data class Product(
+
     @Column(name = "NAME", nullable = false, unique = true)
     val name: String,
 

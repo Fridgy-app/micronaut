@@ -1,22 +1,27 @@
 package me.rasztabiga.fridgy.common.entity
 
 import com.fasterxml.jackson.annotation.JsonIgnore
+import io.micronaut.core.annotation.Introspected
 import java.util.*
 import javax.persistence.*
 
 @MappedSuperclass
+@Introspected
 abstract class BaseAggregateRoot : BaseEntity() {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "AGGREGATE_STATUS")
-    protected var aggregateStatus: AggregateStatus = AggregateStatus.ACTIVE
+    @JsonIgnore
+    var aggregateStatus: AggregateStatus = AggregateStatus.ACTIVE
 
     @Column(name = "LAST_CHANGE_DATE")
     @Temporal(TemporalType.TIMESTAMP)
-    protected var lastChangeDate: Date? = null
+    @JsonIgnore
+    var lastChangeDate: Date? = null
 
     @Column(name = "LAST_CHANGE_AUTHOR_ID")
-    protected var lastChangeAuthorId: Long? = null
+    @JsonIgnore
+    var lastChangeAuthorId: Long? = null
 
     fun markAsRemoved() {
         aggregateStatus = AggregateStatus.ARCHIVE
