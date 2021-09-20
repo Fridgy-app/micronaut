@@ -5,10 +5,9 @@ import org.hibernate.Hibernate
 import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.Table
-import javax.persistence.UniqueConstraint
 
 @Entity
-@Table(name = "PRODUCT", uniqueConstraints = [UniqueConstraint(columnNames = ["NAME"])])
+@Table(name = "PRODUCT")
 data class Product(
     @Column(name = "NAME", nullable = false, unique = true)
     val name: String,

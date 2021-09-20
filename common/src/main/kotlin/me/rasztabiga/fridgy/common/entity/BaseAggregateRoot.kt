@@ -1,5 +1,6 @@
 package me.rasztabiga.fridgy.common.entity
 
+import com.fasterxml.jackson.annotation.JsonIgnore
 import java.util.*
 import javax.persistence.*
 
@@ -25,10 +26,12 @@ abstract class BaseAggregateRoot : BaseEntity() {
         aggregateStatus = AggregateStatus.ACTIVE
     }
 
+    @JsonIgnore
     fun isActive(): Boolean {
         return aggregateStatus === AggregateStatus.ACTIVE
     }
 
+    @JsonIgnore
     fun isRemoved(): Boolean {
         return aggregateStatus === AggregateStatus.ARCHIVE
     }
