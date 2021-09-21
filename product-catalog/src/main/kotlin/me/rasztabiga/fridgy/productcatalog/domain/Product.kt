@@ -1,11 +1,13 @@
 package me.rasztabiga.fridgy.productcatalog.domain
 
+import io.micronaut.data.annotation.MappedEntity
 import me.rasztabiga.fridgy.common.entity.BaseAggregateRoot
 import org.hibernate.Hibernate
 import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.Table
 
+@MappedEntity
 @Entity
 @Table(name = "PRODUCT")
 data class Product(

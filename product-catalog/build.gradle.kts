@@ -40,6 +40,13 @@ dependencies {
     kapt("io.micronaut.data:micronaut-data-processor:${micronautVersion}")
     kapt("io.micronaut.openapi:micronaut-openapi:3.0.3")
     kapt("io.micronaut.security:micronaut-security-annotations:${micronautVersion}")
+    kapt(platform("io.micronaut:micronaut-bom:$micronautVersion"))
+    kapt("io.micronaut:micronaut-inject-java")
+    kapt("io.micronaut:micronaut-validation")
+    kapt("io.micronaut:micronaut-graal")
+    implementation("io.micronaut:micronaut-http-server-netty")
+    implementation("io.micronaut:micronaut-inject")
+    implementation("io.micronaut:micronaut-validation")
     implementation("io.micronaut:micronaut-http-client:${micronautVersion}")
     implementation("io.micronaut:micronaut-management:${micronautVersion}")
     implementation("io.micronaut.micrometer:micronaut-micrometer-core:4.0.0")
@@ -54,7 +61,7 @@ dependencies {
     implementation("io.micronaut.kotlin:micronaut-kotlin-runtime:3.0.0")
     implementation("io.micronaut.kubernetes:micronaut-kubernetes-discovery-client:3.0.0")
     implementation("io.micronaut.security:micronaut-security-jwt:${micronautVersion}")
-    implementation("io.micronaut.sql:micronaut-hibernate-jpa:4.0.0")
+//    implementation("io.micronaut.sql:micronaut-hibernate-jpa:4.0.0")
     implementation("io.micronaut.data:micronaut-data-jdbc:${micronautVersion}")
     implementation("io.micronaut.sql:micronaut-jdbc-hikari:4.0.0")
     implementation("io.swagger.core.v3:swagger-annotations:2.1.10")
@@ -72,7 +79,7 @@ dependencies {
     testImplementation("org.hamcrest:hamcrest:2.2")
     testImplementation("org.mockito:mockito-core:3.12.4")
 
-    implementation(project(":common"))
+//    implementation(project(":common"))
 }
 
 application {
@@ -111,6 +118,10 @@ tasks {
                 "${rootProject.name}/${project.name}:latest"
             )
         )
+    }
+
+    nativeImage {
+        args("-H:ReflectionConfigurationResources=reflection-config.json")
     }
 
     test {

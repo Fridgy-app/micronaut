@@ -33,6 +33,7 @@ micronaut:
           jwks:
             keycloak:
               url: http://localhost:8081/auth/realms/Fridgy/protocol/openid-connect/certs
+    enabled: false
   server:
     port: 8101
 

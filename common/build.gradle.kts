@@ -1,7 +1,12 @@
+import org.jetbrains.kotlin.kapt3.base.Kapt.kapt
+
 // TODO can we use version as a variable?
 plugins {
-//    id("io.micronaut.application") version "2.0.4"
+    id("groovy")
     id("org.jetbrains.kotlin.jvm") version "1.5.30"
+    id("org.jetbrains.kotlin.kapt") version "1.5.30"
+    id("org.jetbrains.kotlin.plugin.allopen") version "1.5.30"
+    id("org.jetbrains.kotlin.plugin.jpa") version "1.5.30"
 }
 
 version = "0.0.1"
@@ -16,7 +21,10 @@ repositories {
 }
 
 dependencies {
-    compileOnly("io.micronaut.sql:micronaut-hibernate-jpa:4.0.0")
+    annotationProcessor("io.micronaut.data:micronaut-data-processor:${micronautVersion}")
+    kapt("io.micronaut.data:micronaut-data-processor:${micronautVersion}")
+    implementation("io.micronaut.data:micronaut-data-hibernate-jpa:${micronautVersion}")
+    implementation("io.micronaut.sql:micronaut-hibernate-jpa:4.0.0")
 }
 
 //application {
