@@ -1,5 +1,6 @@
 package me.rasztabiga.fridgy.common.entity
 
+import com.fasterxml.jackson.annotation.JsonIgnore
 import javax.persistence.MappedSuperclass
 import javax.persistence.Version
 
@@ -7,7 +8,8 @@ import javax.persistence.Version
 abstract class VersionedIdentifiable<ID> : Identifiable<ID> {
 
     @Version
-    protected val version: Long = 0
+    @JsonIgnore
+    var version: Long? = null
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true

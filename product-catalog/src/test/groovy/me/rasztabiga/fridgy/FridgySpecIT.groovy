@@ -2,8 +2,8 @@ package me.rasztabiga.fridgy
 
 import io.micronaut.runtime.EmbeddedApplication
 import io.micronaut.test.extensions.spock.annotation.MicronautTest
-import spock.lang.Specification
 import jakarta.inject.Inject
+import spock.lang.Specification
 
 @MicronautTest
 class FridgySpecIT extends Specification {

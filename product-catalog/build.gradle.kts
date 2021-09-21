@@ -96,11 +96,21 @@ tasks {
     }
 
     dockerBuild {
-        images.set(listOf("${rootProject.name}/${project.name}:${project.version}", "${rootProject.name}/${project.name}:latest"))
+        images.set(
+            listOf(
+                "${rootProject.name}/${project.name}:${project.version}",
+                "${rootProject.name}/${project.name}:latest"
+            )
+        )
     }
 
     dockerBuildNative {
-        images.set(listOf("${rootProject.name}/${project.name}:${project.version}", "${rootProject.name}/${project.name}:latest"))
+        images.set(
+            listOf(
+                "${rootProject.name}/${project.name}:${project.version}",
+                "${rootProject.name}/${project.name}:latest"
+            )
+        )
     }
 
     test {

@@ -1,18 +1,20 @@
 package me.rasztabiga.fridgy.common.entity
 
-import com.fasterxml.jackson.annotation.JsonIgnore
-import io.micronaut.core.annotation.Introspected
-import javax.persistence.*
+import javax.persistence.GeneratedValue
+import javax.persistence.GenerationType
+import javax.persistence.Id
+import javax.persistence.MappedSuperclass
 
 @MappedSuperclass
-@Introspected
-abstract class BaseEntity {
+abstract class BaseEntity : VersionedIdentifiable<Long>() {
 
-    // TODO can we move id here?
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    val id: Long = 0
 
-    @Version
-    @JsonIgnore
-    val version: Long = 0
+    override fun getId(): Long {
+        return id
+    }
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
