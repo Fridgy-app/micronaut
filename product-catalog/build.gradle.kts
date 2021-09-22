@@ -79,7 +79,7 @@ dependencies {
     testImplementation("org.hamcrest:hamcrest:2.2")
     testImplementation("org.mockito:mockito-core:3.12.4")
 
-//    implementation(project(":common"))
+    implementation(project(":common"))
 }
 
 application {

@@ -21,9 +21,11 @@ repositories {
 }
 
 dependencies {
-    annotationProcessor("io.micronaut.data:micronaut-data-processor:${micronautVersion}")
-    kapt("io.micronaut.data:micronaut-data-processor:${micronautVersion}")
-    implementation("io.micronaut.data:micronaut-data-hibernate-jpa:${micronautVersion}")
+    compileOnly("io.micronaut:micronaut-inject:1.2.5")
+    annotationProcessor("io.micronaut:micronaut-inject-java:1.2.5")
+//    annotationProcessor("io.micronaut.data:micronaut-data-processor:${micronautVersion}")
+//    kapt("io.micronaut.data:micronaut-data-processor:${micronautVersion}")
+//    implementation("io.micronaut.data:micronaut-data-hibernate-jpa:${micronautVersion}")
     implementation("io.micronaut.sql:micronaut-hibernate-jpa:4.0.0")
 }
 

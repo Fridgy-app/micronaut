@@ -1,13 +1,11 @@
 package me.rasztabiga.fridgy.common.entity
 
-import io.micronaut.data.annotation.MappedEntity
 import javax.persistence.GeneratedValue
 import javax.persistence.GenerationType
 import javax.persistence.Id
 import javax.persistence.MappedSuperclass
 
 @MappedSuperclass
-@MappedEntity
 abstract class BaseEntity : VersionedIdentifiable<Long>() {
 
     @Id

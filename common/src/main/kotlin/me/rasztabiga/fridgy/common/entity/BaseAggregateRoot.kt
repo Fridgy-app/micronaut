@@ -1,12 +1,10 @@
 package me.rasztabiga.fridgy.common.entity
 
 import com.fasterxml.jackson.annotation.JsonIgnore
-import io.micronaut.data.annotation.MappedEntity
 import java.util.*
 import javax.persistence.*
 
 @MappedSuperclass
-@MappedEntity
 abstract class BaseAggregateRoot : BaseEntity() {
 
     @Enumerated(EnumType.STRING)

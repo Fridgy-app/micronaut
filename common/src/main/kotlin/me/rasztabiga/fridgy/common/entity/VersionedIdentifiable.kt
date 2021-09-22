@@ -1,12 +1,10 @@
 package me.rasztabiga.fridgy.common.entity
 
 import com.fasterxml.jackson.annotation.JsonIgnore
-import io.micronaut.data.annotation.MappedEntity
 import javax.persistence.MappedSuperclass
 import javax.persistence.Version
 
 @MappedSuperclass
-@MappedEntity
 abstract class VersionedIdentifiable<ID> : Identifiable<ID> {
 
     @Version
