@@ -14,13 +14,6 @@ services:
     volumes:
       - postgres-data:/var/lib/postgresql/data
 
-  consul:
-    image: "consul:latest"
-    container_name: fridgy-consul
-    hostname: consul
-    ports:
-      - "8500:8500"
-
   kafkaserver:
     image: "wurstmeister/kafka:latest" # https://hub.docker.com/r/wurstmeister/kafka/
     container_name: fridgy-kafka

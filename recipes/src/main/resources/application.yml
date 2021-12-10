@@ -22,8 +22,6 @@ kafka:
 micronaut:
   application:
     name: recipes
-  metrics:
-    enabled: true
   security:
     authentication: bearer
     token:
@@ -35,20 +33,6 @@ micronaut:
               url: http://localhost:8081/auth/realms/Fridgy/protocol/openid-connect/certs
   server:
     port: 8102
-
-endpoints:
-  health:
-    enabled: true
-    sensitive: false
-  metrics:
-    enabled: true
-    sensitive: false
-
-consul:
-  client:
-    default-zone: "${CONSUL_HOST:localhost}:${CONSUL_PORT:8500}"
-    registration:
-      enabled: true
 
 flyway:
   datasources:

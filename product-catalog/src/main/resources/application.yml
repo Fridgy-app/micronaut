@@ -22,8 +22,6 @@ kafka:
 micronaut:
   application:
     name: product-catalog
-  metrics:
-    enabled: true
   security:
     authentication: bearer
     token:
@@ -36,20 +34,6 @@ micronaut:
     enabled: false
   server:
     port: 8101
-
-endpoints:
-  health:
-    enabled: true
-    sensitive: false
-  metrics:
-    enabled: true
-    sensitive: false
-
-consul:
-  client:
-    default-zone: "${CONSUL_HOST:localhost}:${CONSUL_PORT:8500}"
-    registration:
-      enabled: true
 
 flyway:
   datasources:

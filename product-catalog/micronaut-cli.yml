@@ -1,6 +1,0 @@
-applicationType: default
-defaultPackage: me.rasztabiga.fridgy.productcatalog
-testFramework: junit
-sourceLanguage: kotlin
-buildTool: gradle_kotlin
-features: [ annotation-api, app-name, cache-ehcache, config-kubernetes, consul, data, data-jpa, discovery-consul, flyway, github-workflow-graal-docker-registry, graalvm, gradle, graphql, hamcrest, hibernate-jpa, http-client, jdbc-hikari, jib, junit, kafka, knative, kotlin, kotlin-application, kotlin-extension-functions, kubernetes, logback, management, mockito, netty-server, openapi, postgres, readme, security, security-annotations, security-jwt, shade, testcontainers, yaml ]
