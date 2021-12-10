@@ -3,7 +3,7 @@ version: '3'
 services:
   postgres:
     image: "postgres:latest"
-    container_name: postgres
+    container_name: fridgy-postgres
     hostname: postgres
     ports:
       - "5432:5432"
@@ -16,14 +16,14 @@ services:
 
   consul:
     image: "consul:latest"
-    container_name: consul
+    container_name: fridgy-consul
     hostname: consul
     ports:
       - "8500:8500"
 
   kafkaserver:
     image: "wurstmeister/kafka:latest" # https://hub.docker.com/r/wurstmeister/kafka/
-    container_name: kafka
+    container_name: fridgy-kafka
     hostname: kafkaserver
     ports:
       - "9092:9092"
@@ -33,14 +33,14 @@ services:
 
   zookeeper:
     image: "wurstmeister/zookeeper:latest"
-    container_name: zookeeper
+    container_name: fridgy-zookeeper
     hostname: zookeeper
     ports:
       - "2181:2181"
 
   keycloak:
     image: "quay.io/keycloak/keycloak:latest"
-    container_name: keycloak
+    container_name: fridgy-keycloak
     hostname: keycloak
     command:
       - "-b"
@@ -69,7 +69,7 @@ services:
 
   keycloak-db:
     image: "postgres:latest"
-    container_name: keycloak-db
+    container_name: fridgy-keycloak-db
     hostname: keycloak-db
     environment:
       POSTGRES_USER: admin
